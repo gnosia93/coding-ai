@@ -7,6 +7,13 @@ aws bedrock list-foundation-models \
   --output table
 ```
 
+다음 명령어를 이용하여 텍스트 모델만 조회할 수 있다. 
+```
+aws bedrock list-foundation-models \
+  --by-output-modality TEXT \
+  --query "modelSummaries[*].[modelId, modelName, responseStreamingSupported]" \
+  --output table
+```
 
 
 
