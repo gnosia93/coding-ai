@@ -7,7 +7,7 @@ uv init
 uv add langgraph
 ```
 
-#### 생성된 프로젝트 파일 정보를 확인한다. ####
+생성된 프로젝트 파일 정보를 확인한다.
 ```
 ls -la 
 ```
@@ -23,7 +23,7 @@ drwxr-xr-x@ 8 automake  staff     256  5월 22 23:01 .venv
 -rw-r--r--@ 1 automake  staff  136035  5월 22 23:01 uv.lock
 ```
 
-#### 파이썬 프로젝트 설정 파일을 확인한다. ####
+파이썬 프로젝트 설정 파일을 확인한다.
 ```
 cat pyproject.toml
 ```
