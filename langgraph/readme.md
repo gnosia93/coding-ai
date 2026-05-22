@@ -41,7 +41,7 @@ dependencies = [
 ]
 ```
 
-## hello 그래프 작성 ##
+## 그래프 작성 ##
 ```
 from langgraph.graph import StateGraph, MessagesState, START, END
 
