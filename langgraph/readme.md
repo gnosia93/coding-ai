@@ -35,6 +35,14 @@ aws bedrock list-foundation-models \
   --output table
 ```
 
+### 패키지 설치 ###
+```
+uv add langchain langchain-aws
+```
+
+
+
+
 
 
 ## 프로젝트 생성 ##
