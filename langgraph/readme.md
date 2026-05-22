@@ -1,3 +1,15 @@
+## bedrock ##
+
+### 모델 리스트 조회 ###
+```
+aws bedrock list-foundation-models \
+  --query "modelSummaries[*].[modelId, modelName, responseStreamingSupported]" \
+  --output table
+```
+
+
+
+
 ## 프로젝트 생성 ##
 
 아래와 같이 `hello` 디렉토리를 생성한 후 uv 로 프로젝트를 생성하고 langgraph 를 설치한다.
