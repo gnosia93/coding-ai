@@ -7,6 +7,8 @@ uv init
 uv add langgraph
 ```
 
+생성된 프로젝트 파일 정보를 확인한다.
+
 ```
 ls -la 
 ```
