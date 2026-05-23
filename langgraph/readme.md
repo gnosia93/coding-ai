@@ -1,4 +1,4 @@
-## bedrock ##
+## 1. bedrock ##
 
 ### 모델 리스트 조회 ###
 ```
@@ -99,7 +99,7 @@ aws bedrock-runtime converse \
 }
 ```
 
-## 프로젝트 생성 ##
+## 2. 프로젝트 생성 ##
 
 아래와 같이 `hello` 디렉토리를 생성한 후 uv 로 프로젝트를 생성하고 langgraph 를 설치한다.
 uv는 패키지 및 프로젝트 관리도구로, 기본적으로 패키지를 관리할 때 프로젝트 단위로 관리한다. (파이썬 버전 관리 + 프로젝트 및 패키지 관리 + 가상환경 관리) 
@@ -142,7 +142,7 @@ dependencies = [
 ]
 ```
 
-## 그래프 작성 ##
+## 3. hello 그래프 작성 ##
 ```
 from langgraph.graph import StateGraph, MessagesState, START, END
 
@@ -166,7 +166,7 @@ pprint.pprint(result)
 ```
 
 
-## 프로젝트 실행 ##
+hello 그래프를 실행합니다.
 ```
 uv run main.py
 ```
