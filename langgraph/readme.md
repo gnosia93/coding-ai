@@ -179,8 +179,54 @@ uv run main.py
 {'messages': [AIMessage(content='hello world', additional_kwargs={}, response_metadata={}, id='dfd3d9ab-c850-4fee-ad50-b7735df289e1', tool_calls=[], invalid_tool_calls=[])]}
 ```
 
-### 5. tool call ###
+### 5. Tool Call ###
 
+* https://github.com/gnosia93/coding-ai/blob/main/langgraph/src/tools.py
+```
+uv run tools.py
+```
+[결과]
+```
+<IPython.core.display.Image object>
+================================ Human Message =================================
+
+Add 3 and 4.
+================================== Ai Message ==================================
+
+[{'type': 'tool_use', 'name': 'add', 'input': {'a': 3, 'b': 4}, 'id': 'tooluse_y8wF0xEe8FqplUwg7tiuFG'}]
+Tool Calls:
+  add (tooluse_y8wF0xEe8FqplUwg7tiuFG)
+ Call ID: tooluse_y8wF0xEe8FqplUwg7tiuFG
+  Args:
+    a: 3
+    b: 4
+================================= Tool Message =================================
+
+7
+================================== Ai Message ==================================
+
+The sum of 3 and 4 is **7**.
+automake@mini hello % uv run tools.py
+<IPython.core.display.Image object>
+================================ Human Message =================================
+
+Add 3 and 4.
+================================== Ai Message ==================================
+
+[{'type': 'tool_use', 'name': 'add', 'input': {'a': 3, 'b': 4}, 'id': 'tooluse_dMSqm3YI2oY2D8DYdEpzoj'}]
+Tool Calls:
+  add (tooluse_dMSqm3YI2oY2D8DYdEpzoj)
+ Call ID: tooluse_dMSqm3YI2oY2D8DYdEpzoj
+  Args:
+    a: 3
+    b: 4
+================================= Tool Message =================================
+
+7
+================================== Ai Message ==================================
+
+The sum of 3 and 4 is **7**.
+```
 
 
 
