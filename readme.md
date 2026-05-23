@@ -35,6 +35,12 @@ coding-ml-lab/
 * [TRANSFOMERS FROM SCRATCH](https://peterbloem.nl/blog/transformers)
 
 
+## Study Items ##
+
+* 구조적 디코딩 (Structured Decoding)
+* 제약 조건 기반 디코딩 (Constrained Decoding)
+* 문법 기반 샘플링 (Grammar-based Sampling / Grammar Masking)
+
 
 ## 레퍼런스 ##
 
