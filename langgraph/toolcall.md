@@ -1,3 +1,17 @@
+## graph 이미지 출력 ##
+```
+# 일반 파이썬 파일(agent.py) 환경일 때 사용하는 코드
+mermaid_png_bytes = chain.get_graph().draw_mermaid_png()
+
+# 파일 열어서 바이너리(wb)로 저장하기
+with open("my_chain_graph.png", "wb") as f:
+    f.write(mermaid_png_bytes)
+
+print("그래프 이미지가 'my_chain_graph.png' 파일로 저장되었습니다!")
+```
+
+## tool call ##
+
 ### 1. ToolCall 객체의 표준 타입 스펙 (파이썬) ###
 
 langchain_core.messages.tool 모듈에 정의된 ToolCall 구조는 다음과 같습니다. 딱 4가지 필드로만 구성된 매우 심플한 명세서입니다.
