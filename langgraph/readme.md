@@ -48,13 +48,7 @@ aws bedrock list-inference-profiles \
   --output table
 ```
 
-```
-aws bedrock-runtime converse \
-  --model-id apac.anthropic.claude-sonnet-4-6 \
-  --messages '[{"role": "user", "content": [{"text": "안녕? 반가워. 너는 누구니?"}]}]' \
-  --region ${AWS_REGION}
-```
-
+엔트로픽 모델 리스를 조회한다. 
 ```
 aws bedrock list-foundation-models \
   --region ap-northeast-1 \
@@ -63,7 +57,13 @@ aws bedrock list-foundation-models \
   --output table
 ```
 
-
+소넷 4.6 모델을 호출한다. (global prefix 사용)
+```
+aws bedrock-runtime converse \
+  --model-id global.anthropic.claude-sonnet-4-6 \
+  --messages '[{"role": "user", "content": [{"text": "안녕? 반가워. 너는 누구니?"}]}]' \
+  --region ap-northeast-1
+```
 
 
 ## 프로젝트 생성 ##
