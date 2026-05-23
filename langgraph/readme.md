@@ -27,6 +27,12 @@ aws bedrock list-foundation-models \
 |  deepseek.v3.2                                |  DeepSeek V3.2                        |
 ```
 
+AWS_REGION 환경 변수를 설정합니다
+```
+export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
+echo ${AWS_REGION}
+```
+
 다음 명령어를 이용하여 텍스트 모델만 조회할 수 있다. 
 ```
 aws bedrock list-foundation-models \
@@ -35,10 +41,14 @@ aws bedrock list-foundation-models \
   --output table
 ```
 
+프로필 ID 를 조회합니다.
 ```
-export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
-echo ${AWS_REGION}
+aws bedrock list-inference-profiles \
+  --region ${AWS_REGION} \
+  --output table
+```
 
+```
 aws bedrock-runtime converse \
   --model-id anthropic.claude-sonnet-4-20250514-v1:0 \
   --messages '[{"role": "user", "content": [{"text": "안녕? 반가워. 너는 누구니?"}]}]' \
