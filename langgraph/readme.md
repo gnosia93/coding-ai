@@ -56,6 +56,19 @@ aws bedrock list-foundation-models \
   --query "modelSummaries[?modelLifecycle.status=='ACTIVE'].modelId" \
   --output table
 ```
+[결과]
+```
+-----------------------------------------------
+|            ListFoundationModels             |
++---------------------------------------------+
+|  anthropic.claude-opus-4-7                  |
+|  anthropic.claude-haiku-4-5-20251001-v1:0   |
+|  anthropic.claude-sonnet-4-5-20250929-v1:0  |
+|  anthropic.claude-sonnet-4-6                |
+|  anthropic.claude-opus-4-5-20251101-v1:0    |
+|  anthropic.claude-opus-4-6-v1               |
++---------------------------------------------+
+```
 
 소넷 4.6 모델을 호출한다. (global prefix 사용)
 ```
@@ -64,7 +77,30 @@ aws bedrock-runtime converse \
   --messages '[{"role": "user", "content": [{"text": "안녕? 반가워. 너는 누구니?"}]}]' \
   --region ap-northeast-1
 ```
-
+[결과]
+```
+{
+    "output": {
+        "message": {
+            "role": "assistant",
+            "content": [
+                {
+                    "text": "안녕하세요! 반가워요 😊\n\n저는 **Claude**예요. Anthropic이 만든 AI 어시스턴트입니다.\n\n질문에 답하거나, 대화를 나누거나, 글쓰기, 분석, 번역 등 다양한 방면에서 도움을 드릴 수 있어요.\n\n무엇을 도와드릴까요? 🙂"
+                }
+            ]
+        }
+    },
+    "stopReason": "end_turn",
+    "usage": {
+        "inputTokens": 25,
+        "outputTokens": 127,
+        "totalTokens": 152
+    },
+    "metrics": {
+        "latencyMs": 3019
+    }
+}
+```
 
 ## 프로젝트 생성 ##
 
