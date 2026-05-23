@@ -1,11 +1,5 @@
 ## bedrock ##
 
-AWS_REGION 환경 변수를 설정합니다
-```
-export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
-echo ${AWS_REGION}
-```
-
 ### 모델 리스트 조회 ###
 ```
 aws bedrock list-foundation-models \
@@ -48,10 +42,13 @@ aws bedrock list-inference-profiles \
   --output table
 ```
 
-엔트로픽 모델 리스를 조회한다. 
+엔트로픽 모델 리스트를 조회한다. 
 ```
+export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
+echo ${AWS_REGION}
+
 aws bedrock list-foundation-models \
-  --region ap-northeast-1 \
+  --region {AWS_REGION} \
   --by-provider anthropic \
   --query "modelSummaries[?modelLifecycle.status=='ACTIVE'].modelId" \
   --output table
@@ -75,7 +72,7 @@ aws bedrock list-foundation-models \
 aws bedrock-runtime converse \
   --model-id global.anthropic.claude-sonnet-4-6 \
   --messages '[{"role": "user", "content": [{"text": "안녕? 반가워. 너는 누구니?"}]}]' \
-  --region ap-northeast-1
+  --region {AWS_REGION}
 ```
 [결과]
 ```
