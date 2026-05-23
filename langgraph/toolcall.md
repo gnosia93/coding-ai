@@ -41,3 +41,19 @@ class ToolCall(TypedDict):
 #### ④ type (타입: str) ####
 * 설명: 이 데이터 구조의 종류를 명시하는 메타데이터입니다.
 * 스펙: 값은 언제나 리터럴 문자열인 "tool_call"로 고정되어 있습니다.
+
+
+### 3. tool_node 안에서 데이터 꺼내 쓰기 ###
+```
+for tool_call in state["messages"][-1].tool_calls:
+    # 1. 스펙에 정의된 필드 접근하기 (점 표기법 권장)
+    func_name = tool_call.name  # 예: "get_weather"
+    func_args = tool_call.args  # 예: {"location": "Seoul"}
+    call_id = tool_call.id      # 예: "call_abc123"
+    
+    # 2. 이름표를 보고 미리 준비한 실제 파이썬 함수 매핑해서 가져오기
+    actual_function = tools_by_name[func_name]
+    
+    # 3. 딕셔너리로 된 인자값을 언패킹(**)해서 함수 실행하기
+    output = actual_function(**func_args)
+```
