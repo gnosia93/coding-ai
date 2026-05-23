@@ -1,5 +1,11 @@
 ## bedrock ##
 
+AWS_REGION 환경 변수를 설정합니다
+```
+export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
+echo ${AWS_REGION}
+```
+
 ### 모델 리스트 조회 ###
 ```
 aws bedrock list-foundation-models \
@@ -25,12 +31,6 @@ aws bedrock list-foundation-models \
 |  qwen.qwen3-vl-235b-a22b                      |  Qwen3 VL 235B A22B                   |
 |  qwen.qwen3-next-80b-a3b                      |  Qwen3 Next 80B A3B                   |
 |  deepseek.v3.2                                |  DeepSeek V3.2                        |
-```
-
-AWS_REGION 환경 변수를 설정합니다
-```
-export AWS_REGION=$(aws ec2 describe-availability-zones --query 'AvailabilityZones[0].RegionName' --output text)
-echo ${AWS_REGION}
 ```
 
 다음 명령어를 이용하여 텍스트 모델만 조회할 수 있다. 
